@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bs/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./bs/bootstrap.min.css">
+    <script src="./server.js"></script>
+    <title>Geartown</title>
+</head>
+<style>
+    main img {
+        width:25%;
+        min-width: 300px;
+    }
+</style>
+<body>
+    <main>
+        <div id="main" class="img w-100 text-center mt-4">
+            <img src="./files/img/yugioh.webp" alt="">
+            <div class="bg-white text-dark d-flex justify-content-around mt-4" style="border-radius:0">
+                <button id="title_button_agregar" class="btn btn-info" data-toggle="collapse" data-target="#agregar" aria-expanded="true" aria-controls="agregar">Agregar carta</button>
+                <button id="title_button_listado" class="btn btn-success" data-toggle="collapse" data-target="#listado" aria-expanded="true" aria-controls="listado">Listado de cartas</button>
+            </div>
+            <div id="agregar" class="collapse w-100 mt-4 row text-start" aria-labelledby="agregar" data-parent="#main">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p>ID Carta. <input id="idcarta" type="text" class="w-100" placeholder="Insertar ID" onchange="buscarcarta()"></p>
+                    <div id="imagen-carta" class="text-center"></div>
+                    <p>ID Expansión. <input type="text" class="w-100" placeholder="Insertar ID expansión"></p>
+                    <p>Edición. <input type="text" class="w-100" placeholder="Insertar edición"></p>
+                    <p>Nombre. <input id="nombre-carta" type="text" class="w-100" placeholder="Insertar nombre" disabled></p>
+                    <p>Cantidad. <input type="number" class="w-100" min="0" placeholder="Insertar cantidad"></p>
+                    <p>Tipo de carta. 
+                        <select id="tipocarta" class="w-100" disabled>
+                            <option value="">...</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Effect">Effect</option>
+                            <option value="Fusion">Fusion</option>
+                            <option value="Synchro">Synchro</option>
+                            <option value="Xyz">Xyz</option>
+                            <option value="Pendulum">Pendulum</option>
+                            <option value="Link">Link</option>
+                            <option value="Rush">Rush</option>
+                            <option value="Spell">Spell</option>
+                            <option value="Trap">Trap</option>
+                            <option value="Token">Token</option>
+                        </select>
+                    </p>
+                    <p>Tipo. <input id="tipo-monstruo" type="text" class="w-100" placeholder="Insertar tipo" disabled></p>
+                    <p>Carpeta. <input type="text" class="w-100" placeholder="Insertar carpeta"></p>
+                    <p>Folio. <input type="number" class="w-100" min="0" placeholder="Insertar número de folio"></p>
+                    <p>¿Vendida?. 
+                        <select id="vendida" class="w-100">
+                            <option value="">No</option>
+                            <option value="Si">Si</option>
+                        </select>
+                    </p>
+                    <p>Precio vendida. <input type="text" class="w-100" placeholder="Insertar precio personalizado"></p>
+                    <button class="btn btn-primary" onclick="agregarcarta()">Agregar carta</button>
+                    <button class="btn btn-danger" onclick="reset()">Reiniciar</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div id="listado" class="collapse w-100 mt-4 text-start" aria-labelledby="listado" data-parent="#main">
+                <div class="d-flex">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <input type="number" placeholder="Carta ID">
+                        <input type="text" placeholder="Expansión">
+                        <input type="text" placeholder="Nombre">
+                        <input type="number" min="0" placeholder="Cantidad minima">
+                        <select id="tipocartabuscar">
+                            <option value="">...</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Effect">Effect</option>
+                            <option value="Fusion">Fusion</option>
+                            <option value="Synchro">Synchro</option>
+                            <option value="Xyz">Xyz</option>
+                            <option value="Pendulum">Pendulum</option>
+                            <option value="Link">Link</option>
+                            <option value="Rush">Rush</option>
+                            <option value="Spell">Spell</option>
+                            <option value="Trap">Trap</option>
+                            <option value="Token">Token</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary">Buscar carta</button>
+                    </div>
+                    <div class="col-md-12" id="listado-cartas-buscadas">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./bs/jquery-3.2.1.min.js"></script>
+<script src="./bs/popper.min.js"></script>
+<script src="./bs/bootstrap.min.js"></script>
+</html>
