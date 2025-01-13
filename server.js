@@ -1,3 +1,6 @@
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('cartas');
+
 async function buscarcarta() {
     const idcarta = document.querySelector("#idcarta").value;
 
@@ -59,4 +62,22 @@ async function reset(){
         element.value = "";
     });
     $('#imagen-carta').html("");
+}
+
+window.onload() = function(){
+    db.run("CREATE TABLE `Cartas` \
+        (ID INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, \
+        IDcarta INTEGER, \
+        IDexpansion TEXT, \
+        Edicion TEXT, \
+        Nombre TEXT, \
+        Cantidad INTEGER, \
+        Tipocarta TEXT, \
+        Tipo TEXT, \
+        Carpeta TEXT, \
+        Folio TEXT, \
+        Vendida TEXT, \
+        Aquien TEXT, \
+        Precio TEXT, \
+    ");
 }
