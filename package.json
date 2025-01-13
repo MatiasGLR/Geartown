@@ -4,11 +4,14 @@
   "description": "Aplicacion para cartas de Yugioh",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --config webpack/webpack.config."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "commonjs": "^0.0.1",
+    "expressjs": "^1.0.1",
     "sqlite3": "^5.1.7"
   }
 }

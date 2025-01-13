@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./bs/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./bs/bootstrap.min.css">
     <script src="./server.js"></script>
+    <script src="./index.js"></script>
     <title>Geartown</title>
 </head>
 <style>
@@ -25,14 +26,13 @@
             <div id="agregar" class="collapse w-100 mt-4 row text-start" aria-labelledby="agregar" data-parent="#main">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <p>ID Carta. <input id="idcarta" type="text" class="w-100" placeholder="Insertar ID" onchange="buscarcarta()"></p>
+                    <p>ID Carta. <input onclick="$(this).css('background-color','#fff')" id="idcarta" type="number" class="w-100" placeholder="Insertar ID" onchange="buscarcarta(); $(this).css('background-color','#fff')"><span id="errorcarta"></span></p>
                     <div id="imagen-carta" class="text-center"></div>
-                    <p>ID Expansión. <input type="text" class="w-100" placeholder="Insertar ID expansión"></p>
-                    <p>Edición. <input type="text" class="w-100" placeholder="Insertar edición"></p>
-                    <p>Nombre. <input id="nombre-carta" type="text" class="w-100" placeholder="Insertar nombre" disabled></p>
-                    <p>Cantidad. <input type="number" class="w-100" min="0" placeholder="Insertar cantidad"></p>
+                    <p>ID Expansión. <input onclick="$(this).css('background-color','#fff')" id="idexpansion" type="text" class="w-100" placeholder="Insertar ID expansión" onchange="$(this).css('background-color','#fff')"></p>
+                    <p>Edición. <input onclick="$(this).css('background-color','#fff')" id="edicion" type="text" class="w-100" placeholder="Insertar edición" onchange="$(this).css('background-color','#fff')"></p>
+                    <p>Nombre. <input onclick="$(this).css('background-color','#fff')" id="nombre-carta" type="text" class="w-100" placeholder="Insertar nombre" disabled onchange="$(this).css('background-color','#fff')"></p>
                     <p>Tipo de carta. 
-                        <select id="tipocarta" class="w-100" disabled>
+                        <select onclick="$(this).css('background-color','#fff')" id="tipocarta" class="w-100" disabled onchange="$(this).css('background-color','#fff')">
                             <option value="">...</option>
                             <option value="Normal">Normal</option>
                             <option value="Effect">Effect</option>
@@ -47,17 +47,17 @@
                             <option value="Token">Token</option>
                         </select>
                     </p>
-                    <p>Tipo. <input id="tipo-monstruo" type="text" class="w-100" placeholder="Insertar tipo" disabled></p>
-                    <p>Carpeta. <input type="text" class="w-100" placeholder="Insertar carpeta"></p>
-                    <p>Folio. <input type="number" class="w-100" min="0" placeholder="Insertar número de folio"></p>
+                    <p>Tipo. <input onclick="$(this).css('background-color','#fff')" id="tipo-monstruo" type="text" class="w-100" placeholder="Insertar tipo" disabled onchange="$(this).css('background-color','#fff')"></p>
+                    <p>Carpeta. <input onclick="$(this).css('background-color','#fff')" id="carpeta" type="text" class="w-100" placeholder="Insertar carpeta" onchange="$(this).css('background-color','#fff')"></p>
+                    <p>Folio. <input onclick="$(this).css('background-color','#fff')" id="folio" type="number" class="w-100" min="0" placeholder="Insertar número de folio" onchange="$(this).css('background-color','#fff')"></p>
                     <p>¿Vendida?. 
-                        <select id="vendida" class="w-100">
+                        <select id="vendida" class="w-100" onchange="$(this).css('background-color','#fff')">
                             <option value="">No</option>
                             <option value="Si">Si</option>
                         </select>
                     </p>
-                    <p>¿A quién?. <input type="text" class="w-100" placeholder="Ignorar si no está vendida"></p>
-                    <p>Precio vendida. <input type="text" class="w-100" placeholder="Insertar precio personalizado"></p>
+                    <p>¿A quién?. <input onclick="$(this).css('background-color','#fff')" id="aquien" type="text" class="w-100" placeholder="Insertar nombre" onchange="$(this).css('background-color','#fff')"><span style="color:red">Ignorar si no ha sido vendida</span></p>
+                    <p>Precio vendida. <input onclick="$(this).css('background-color','#fff')" id="preciovendida" type="text" class="w-100" placeholder="Insertar precio personalizado" onchange="$(this).css('background-color','#fff')"><span style="color:red">Ignorar si no ha sido vendida</span></p>
                     <button class="btn btn-primary" onclick="agregarcarta()">Agregar carta</button>
                     <button class="btn btn-danger" onclick="reset()">Reiniciar</button>
                 </div>
@@ -85,13 +85,14 @@
                             <option value="Trap">Trap</option>
                             <option value="Token">Token</option>
                         </select>
+                        <input type="number" min="0" placeholder="Cantidad minima">
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-primary">Buscar carta</button>
+                        <button class="btn btn-primary" onclick="buscarcarta()">Buscar carta</button>
                     </div>
-                    <div class="col-md-12" id="listado-cartas-buscadas">
-                        
-                    </div>
+                </div>
+                <div class="col-md-12" id="listado-cartas-buscadas">
+                    
                 </div>
             </div>
         </div>
